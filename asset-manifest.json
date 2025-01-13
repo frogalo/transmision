@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/frogalo/frogalo.github.io.git/static/css/main.e6c13ad2.css",
+    "main.js": "/frogalo/frogalo.github.io.git/static/js/main.977b36db.js",
+    "index.html": "/frogalo/frogalo.github.io.git/index.html",
+    "main.e6c13ad2.css.map": "/frogalo/frogalo.github.io.git/static/css/main.e6c13ad2.css.map",
+    "main.977b36db.js.map": "/frogalo/frogalo.github.io.git/static/js/main.977b36db.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e6c13ad2.css",
+    "static/js/main.977b36db.js"
+  ]
+}
