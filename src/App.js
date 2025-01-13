@@ -3,11 +3,11 @@ import styled from 'styled-components';
 
 const Container = styled.div`
     padding: 20px;
+    margin: 12px auto;
     max-width: 800px;
-    margin: 0 auto;
     font-family: Arial, sans-serif;
     line-height: 1.6;
-    background-color: #f9f9f9;
+    background-color: rgba(204, 204, 204, 0.24);
     border: 1px solid #ddd;
     border-radius: 8px;
 `;
@@ -24,7 +24,7 @@ const Table = styled.table`
     }
 
     th {
-        background-color: #f4f4f4;
+        background-color: #bceff6;
         font-weight: bold;
     }
 `;
