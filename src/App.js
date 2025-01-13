@@ -513,27 +513,27 @@ const App = () => {
                     <tbody>
                     <tr>
                         <td>Moc nadajnika dla {inputs.bandwidth} MBit/s FDCF</td>
-                        <td>{HzToMw(powerFDCF1.toFixed(2))} dBm</td>
+                        <td>{HzToMw(powerFDCF1.toFixed(2))} mW</td>
                     </tr>
                     <tr>
                         <td>Moc nadajnika dla {inputs.bandwidth2} MBit/s FDCF</td>
-                        <td>{HzToMw(powerFDCF2.toFixed(2))} dBm</td>
+                        <td>{HzToMw(powerFDCF2.toFixed(2))} mW</td>
                     </tr>
                     <tr>
                         <td>Moc nadajnika dla {inputs.bandwidth3} MBit/s FDCF</td>
-                        <td>{HzToMw(powerFDCF3.toFixed(2))} dBm</td>
+                        <td>{HzToMw(powerFDCF3.toFixed(2))} mW</td>
                     </tr>
                     <tr>
                         <td>Moc nadajnika dla {inputs.bandwidth} MBit/s DCF</td>
-                        <td>{HzToMw(powerDCF1.toFixed(2))} dBm</td>
+                        <td>{HzToMw(powerDCF1.toFixed(2))} mW</td>
                     </tr>
                     <tr>
                         <td>Moc nadajnika dla {inputs.bandwidth2} MBit/s DCF</td>
-                        <td>{HzToMw(powerDCF2.toFixed(2))} dBm</td>
+                        <td>{HzToMw(powerDCF2.toFixed(2))} mW</td>
                     </tr>
                     <tr>
                         <td>Moc nadajnika dla {inputs.bandwidth3} MBit/s DCF</td>
-                        <td>{HzToMw(powerDCF3.toFixed(2))} dBm</td>
+                        <td>{HzToMw(powerDCF3.toFixed(2))} mW</td>
                     </tr>
                     </tbody>
                 </Table>
