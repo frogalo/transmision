@@ -478,27 +478,27 @@ const App = () => {
                     <tbody>
                     <tr>
                         <td>Moc nadajnika dla {inputs.bandwidth} MBit/s FDCF</td>
-                        <td>{powerFDCF1.toFixed(2)} mW</td>
+                        <td>{powerFDCF1.toFixed(2)} dBm</td>
                     </tr>
                     <tr>
                         <td>Moc nadajnika dla {inputs.bandwidth2} MBit/s FDCF</td>
-                        <td>{powerFDCF2.toFixed(2)} mW</td>
+                        <td>{powerFDCF2.toFixed(2)} dBm</td>
                     </tr>
                     <tr>
                         <td>Moc nadajnika dla {inputs.bandwidth3} MBit/s FDCF</td>
-                        <td>{powerFDCF3.toFixed(2)} mW</td>
+                        <td>{powerFDCF3.toFixed(2)} dBm</td>
                     </tr>
                     <tr>
                         <td>Moc nadajnika dla {inputs.bandwidth} MBit/s DCF</td>
-                        <td>{powerDCF1.toFixed(2)} mW</td>
+                        <td>{powerDCF1.toFixed(2)} dBm</td>
                     </tr>
                     <tr>
                         <td>Moc nadajnika dla {inputs.bandwidth2} MBit/s DCF</td>
-                        <td>{powerDCF2.toFixed(2)} mW</td>
+                        <td>{powerDCF2.toFixed(2)} dBm</td>
                     </tr>
                     <tr>
                         <td>Moc nadajnika dla {inputs.bandwidth3} MBit/s DCF</td>
-                        <td>{powerDCF3.toFixed(2)} mW</td>
+                        <td>{powerDCF3.toFixed(2)} dBm</td>
                     </tr>
                     </tbody>
                 </Table>
