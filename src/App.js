@@ -633,7 +633,7 @@ const App = () => {
                         <td>{frequency} Hz</td>
                     </tr>
                     <tr>
-                        <td>Tłumienie światłowodu kompensującego dyspersję DCF<Highlight version={"DCF"}>DCF</Highlight>
+                        <td>Tłumienie światłowodu kompensującego dyspersję <Highlight version={"DCF"}>DCF</Highlight>
                         </td>
                         <td>{dcfAttenuation.toFixed(2)} Hz</td>
                     </tr>
