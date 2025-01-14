@@ -171,11 +171,11 @@ const App = () => {
         routeLength: 104, // km
         attenuationCoefficient: 0.25, // dB/km
         spliceDistance: 6, // km
-        spliceLoss: 0.5, // dB
+        spliceLoss: 0.1, // dB
         connectorCountFDCF: 1, // FDCF
-        connectorLossFDCF: 0.1, // dB
+        connectorLossFDCF: 0.5, // dB
         connectorCountDCF: 3, // DCF
-        connectorLossDCF: 0.1, // dB
+        connectorLossDCF: 0.5, // dB
         dispersionCoefficient: 10, // ps/nm/km
         spectralWidth: 1, // nm
         DSMF: 8, // ps/nm/km
@@ -314,7 +314,7 @@ const App = () => {
                                 "Wprowadź wartość w dB",
                             ],
                         }}
-                        image={ac}
+                        image={as}
                     />
                     <InputWithTooltip
                         label={
@@ -333,7 +333,7 @@ const App = () => {
                                 "Wprowadź wartość w dB",
                             ],
                         }}
-                        image={as}
+                        image={ac}
                     />
                     <Label>
                         Ilość złącz <Highlight version={"DCF"}>DCF</Highlight> [n<LowerIndex>s</LowerIndex>]:
