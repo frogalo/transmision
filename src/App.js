@@ -301,7 +301,7 @@ const App = () => {
                     <InputWithTooltip
                         label={
                             <>
-                                Strata na spawie [A<sub>C</sub>] (dB):
+                                Strata na spawie [A<sub>s</sub>] (dB):
                             </>
                         }
                         name="spliceLoss"
@@ -310,7 +310,7 @@ const App = () => {
                         tooltipContent={{
                             title: "Jak znaleźć stratę:",
                             steps: [
-                                "Odczytaj wartość Ac (dB) z treści projektu",
+                                "Odczytaj wartość As (dB) z treści projektu",
                                 "Wprowadź wartość w dB",
                             ],
                         }}
@@ -320,7 +320,7 @@ const App = () => {
                         label={
                             <>
                                 Strata na złączu <Highlight
-                                version={"FDCF"}>FDCF</Highlight> [A<LowerIndex>S</LowerIndex>] (dB):
+                                version={"FDCF"}>FDCF</Highlight> [A<LowerIndex>c</LowerIndex>] (dB):
                             </>
                         }
                         name="connectorLossFDCF"
@@ -329,7 +329,7 @@ const App = () => {
                         tooltipContent={{
                             title: "Jak znaleźć stratę:",
                             steps: [
-                                "Odczytaj wartość As (dB) z treści projektu",
+                                "Odczytaj wartość Ac (dB) z treści projektu",
                                 "Wprowadź wartość w dB",
                             ],
                         }}
@@ -348,7 +348,7 @@ const App = () => {
                         label={
                             <>
                                 Strata na złączu <Highlight
-                                version={"DCF"}>DCF</Highlight> [A<LowerIndex>S</LowerIndex>] (dB):
+                                version={"DCF"}>DCF</Highlight> [A<LowerIndex>c</LowerIndex>] (dB):
                             </>
                         }
                         name="connectorLossDCF"
@@ -357,11 +357,11 @@ const App = () => {
                         tooltipContent={{
                             title: "Jak znaleźć stratę:",
                             steps: [
-                                "Odczytaj wartość As (dB) z treści projektu",
+                                "Odczytaj wartość Ac (dB) z treści projektu",
                                 "Wprowadź wartość w dB",
                             ],
                         }}
-                        image={as}
+                        image={ac}
                     />
                     <InputWithTooltip
                         label={
@@ -561,7 +561,7 @@ const App = () => {
                     />
                     <InputWithTooltip
                         label={<>
-                            Tłumienie światłowodu kompensującego dyspersję <Highlight version={"DCF"}>DCF</Highlight>:
+                            Tłumienie światłowodu kompensującego dyspersję na kilometr <Highlight version={"DCF"}>DCF</Highlight>:
                         </>
                         }
                         name="dcfAttenuationAlfa"
