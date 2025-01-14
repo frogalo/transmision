@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/transmision/static/css/main.e6c13ad2.css",
-    "main.js": "/transmision/static/js/main.f3141b7b.js",
+    "main.js": "/transmision/static/js/main.4dee148c.js",
     "static/media/totalRoute.png": "/transmision/static/media/totalRoute.6aab75f89a0de9405d7c.png",
     "static/media/dlugoscFali.png": "/transmision/static/media/dlugoscFali.f3c0f367aea117a90c3f.png",
     "static/media/kartaSwiatlowodu.png": "/transmision/static/media/kartaSwiatlowodu.c384141ed2b8bf99ce14.png",
@@ -11,10 +11,10 @@
     "static/media/przepustowosci.png": "/transmision/static/media/przepustowosci.c9dc66fe68c4b05f3034.png",
     "index.html": "/transmision/index.html",
     "main.e6c13ad2.css.map": "/transmision/static/css/main.e6c13ad2.css.map",
-    "main.f3141b7b.js.map": "/transmision/static/js/main.f3141b7b.js.map"
+    "main.4dee148c.js.map": "/transmision/static/js/main.4dee148c.js.map"
   },
   "entrypoints": [
     "static/css/main.e6c13ad2.css",
-    "static/js/main.f3141b7b.js"
+    "static/js/main.4dee148c.js"
   ]
 }
