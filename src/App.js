@@ -420,15 +420,7 @@ const App = () => {
                         Długość światłowodu do kompensacji dyspersji [L<LowerIndex>DCF</LowerIndex>] (km):
                         <ReadOnly>{LDCF.toFixed(2)}</ReadOnly>
                     </Label>
-                    <Label>
-                        Długość fali [nm] (nm):
-                        <Input
-                            type="number"
-                            name="wavelengthNM"
-                            value={inputs.wavelengthNM}
-                            onChange={handleChange}
-                        />
-                    </Label>
+
                     <InputWithTooltip
                         label={
                             <>
