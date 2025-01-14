@@ -188,7 +188,7 @@ const App = () => {
         photonsPerBit: 1000, // n0
         photodiodeEfficiency: 0.5, // η
         planckConstant: 6.6261 * Math.pow(10, -34), // η
-        margin: 8,
+        margin: 6,
         dcfAttenuationAlfa: 0.265,
         fdcfAttenuation: 6.4,
 
