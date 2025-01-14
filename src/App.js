@@ -16,6 +16,7 @@ import iloscFotonow from "./images/iloscFotonow.png"
 import czuloscFotoidy from "./images/czuloscFotoidy.png"
 import tlumienieDCF from "./images/tlumienieDCF.png"
 import tlumienieFDCF from "./images/tlumienieFDCF.png"
+import Footer from "./Footer";
 
 const Container = styled.div`
     padding: 16px;
@@ -747,8 +748,10 @@ const App = () => {
                     </tbody>
                 </Table>
             </Container>
+            <Footer/>
         </>
     );
 };
+
 
 export default App;
