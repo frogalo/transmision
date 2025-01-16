@@ -1,7 +1,4 @@
 import React, {useState} from 'react';
-import styled from 'styled-components';
-import {faQuestionCircle} from "@fortawesome/free-solid-svg-icons";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import routeImage from "./images/totalRoute.png"
 import kartaSwiatlowodu from "./images/kartaSwiatlowodu.png"
 import lx from "./images/lx.png"
@@ -17,153 +14,17 @@ import czuloscFotoidy from "./images/czuloscFotoidy.png"
 import tlumienieDCF from "./images/tlumienieDCF.png"
 import tlumienieFDCF from "./images/tlumienieFDCF.png"
 import Footer from "./Footer";
-
-const Container = styled.div`
-    padding: 16px;
-    margin: 16px auto;
-    max-width: 750px;
-    background-color: #f7f9fc;
-    border: 1px solid #d1d9e6;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    font-family: "Roboto", Arial, sans-serif;
-    line-height: 1.5;
-`;
-
-const Header = styled.h1`
-    text-align: center;
-    font-size: 1.8rem;
-    color: #2c3e50;
-    margin-bottom: 20px;
-`;
-
-const Input = styled.input`
-    width: 100%;
-    padding: 6px;
-    margin: 8px 0;
-    border: 1px solid #d1d9e6;
-    border-radius: 4px;
-    font-size: 0.9rem;
-    box-sizing: border-box;
-    transition: all 0.3s ease;
-
-    &:focus {
-        border-color: #3eaf7c;
-        outline: none;
-        box-shadow: 0 0 8px rgba(62, 175, 124, 0.5);
-    }
-
-    &:hover {
-        border-color: #3eaf7c;
-    }
-`;
-
-const ReadOnly = styled.div`
-    padding: 6px;
-    margin: 8px 0;
-    background-color: #eef2f6;
-    border: 1px solid #d1d9e6;
-    border-radius: 4px;
-    font-size: 0.9rem;
-    color: #2c3e50;
-`;
-
-const Label = styled.label`
-    font-size: 0.9rem;
-    color: #2c3e50;
-    display: block;
-    margin-top: 10px;
-`;
-const LowerIndex = styled.span`
-    font-size: 0.8em; /* Reduce the font size for the lower index */
-    vertical-align: -0.3em; /* Position it lower relative to the baseline */
-`;
-
-const Highlight = styled.span`
-    color: ${(props) =>
-            props.version === "FDCF" ? "#3eaf7c" : props.version === "DCF" ? "#a73eaf" : "inherit"};
-    font-weight: bold;
-`;
-
-const Table = styled.table`
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 20px;
-
-    th, td {
-        border: 1px solid #ddd;
-        padding: 8px;
-        text-align: center;
-    }
-
-    th {
-        background-color: #bceff6;
-        font-weight: bold;
-    }
-;`
-const TableTitle = styled.div`
-font-weight: bold;
-`
-const TooltipIcon = styled.span`
-    margin-left: 8px;
-    cursor: pointer;
-    color: #9f9f9f; /* Adjust the color to match your theme */
-
-    &:hover {
-        color: #2c8b5f; /* Darker hover color */
-    }
-
-    position: relative;
-`;
-
-const TooltipDialog = styled.div`
-    display: ${({visible}) => (visible ? "block" : "none")};
-    position: absolute;
-    top: 25px;
-    left: 0;
-    width: 300px;
-    padding: 16px;
-    background: #fff;
-    border: 1px solid #ccc;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    z-index: 10;
-    font-size: 14px;
-    color: #333;
-    border-radius: 8px;
-
-    img {
-        max-width: 100%;
-        margin-top: 8px;
-        border-radius: 4px;
-    }`;
-const InputWithTooltip = ({label, name, value, onChange, tooltipContent, image}) => {
-    const [tooltipVisible, setTooltipVisible] = useState(false);
-
-    return (
-        <Label>
-            {/* Render the label using JSX components */}
-            {label}
-            <div style={{position: "relative", display: "inline-flex", alignItems: "center"}}>
-                <TooltipIcon
-                    onMouseEnter={() => setTooltipVisible(true)}
-                    onMouseLeave={() => setTooltipVisible(false)}
-                >
-                    <FontAwesomeIcon icon={faQuestionCircle}/>
-                </TooltipIcon>
-                <TooltipDialog visible={tooltipVisible}>
-                    <p>{tooltipContent.title}</p>
-                    <ol>
-                        {tooltipContent.steps.map((step, index) => (
-                            <li key={index}>{step}</li>
-                        ))}
-                    </ol>
-                    {image && <img src={image} alt="Example" style={{maxWidth: "100%"}}/>}
-                </TooltipDialog>
-            </div>
-            <Input type="number" name={name} value={value} onChange={onChange}/>
-        </Label>
-    );
-};
+import {
+    Input,
+    Label,
+    Container,
+    Header,
+    Button,
+    ReadOnly,
+    LowerIndex,
+    Highlight, Table, TableTitle
+} from './App.styles';
+import InputWithTooltip from "./InputWithTooltip"; // Import styled components
 
 
 const App = () => {
@@ -193,7 +54,33 @@ const App = () => {
         fdcfAttenuation: 6.4,
 
     });
-
+    const handleClearAll = () => {
+        setInputs({
+            routeLength: 0,
+            attenuationCoefficient: 0,
+            spliceDistance: 0,
+            spliceLoss: 0,
+            connectorCountFDCF: 0,
+            connectorLossFDCF: 0,
+            connectorCountDCF: 0,
+            connectorLossDCF: 0,
+            dispersionCoefficient: 0,
+            spectralWidth: 0,
+            DSMF: 0,
+            DDCF: 0,
+            wavelengthNM: 0,
+            speedOfLight: 0,
+            bandwidth: 0,
+            bandwidth2: 0,
+            bandwidth3: 0,
+            photonsPerBit: 0,
+            photodiodeEfficiency: 0,
+            planckConstant: 0,
+            margin: 0,
+            dcfAttenuationAlfa: 0,
+            fdcfAttenuation: 0,
+        });
+    };
     const handleChange = (e) => {
         const {name, value} = e.target;
         setInputs((prev) => ({
@@ -240,6 +127,9 @@ const App = () => {
         <>
             <Container>
                 <Header>Ilustracja Obliczeń Światłowodowych</Header>
+                <Button type="button" onClick={handleClearAll}>
+                    Wyczyść dane
+                </Button>
                 <h2>Zmienne Wejściowe</h2>
                 <form>
                     <InputWithTooltip
@@ -553,7 +443,8 @@ const App = () => {
                     />
                     <InputWithTooltip
                         label={<>
-                            Tłumienie światłowodu kompensującego dyspersję na kilometr <Highlight version={"DCF"}>DCF</Highlight>:
+                            Tłumienie światłowodu kompensującego dyspersję na kilometr <Highlight
+                            version={"DCF"}>DCF</Highlight>:
                         </>
                         }
                         name="dcfAttenuationAlfa"
