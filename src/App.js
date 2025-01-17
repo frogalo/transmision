@@ -226,7 +226,7 @@ const App = () => {
                         image={ac}
                     />
                     <Label>
-                        Ilość złącz <Highlight version={"DCF"}>DCF</Highlight> [n<LowerIndex>s</LowerIndex>]:
+                        Ilość złącz <Highlight version={"DCF"}>DCF</Highlight> [n<LowerIndex>c</LowerIndex>]:
                         <Input
                             type="number"
                             name="connectorCountDCF"
