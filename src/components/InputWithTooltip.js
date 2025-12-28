@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { Input, WarningIcon, Label, TooltipIcon, TooltipDialog } from './App.styles';
+import { Input, WarningIcon, Label, TooltipIcon, TooltipDialog } from '../App.styles';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faExclamationCircle, faQuestionCircle } from "@fortawesome/free-solid-svg-icons"; // Import styled components
+import { faExclamationCircle, faQuestionCircle } from "@fortawesome/free-solid-svg-icons"; 
 
 const InputWithTooltip = ({ label, name, value, onChange, tooltipContent, image }) => {
     const [tooltipVisible, setTooltipVisible] = useState(false);
@@ -30,12 +30,16 @@ const InputWithTooltip = ({ label, name, value, onChange, tooltipContent, image 
                     <FontAwesomeIcon icon={faQuestionCircle} />
                 </TooltipIcon>
                 <TooltipDialog visible={tooltipVisible}>
-                    <p>{tooltipContent.title}</p>
-                    <ol>
-                        {tooltipContent.steps.map((step, index) => (
-                            <li key={index}>{step}</li>
-                        ))}
-                    </ol>
+                    {tooltipContent && (
+                        <>
+                            <p>{tooltipContent.title}</p>
+                            <ol>
+                                {tooltipContent.steps.map((step, index) => (
+                                    <li key={index}>{step}</li>
+                                ))}
+                            </ol>
+                        </>
+                    )}
                     {image && <img src={image} alt="Example" style={{ maxWidth: "100%" }} />}
                 </TooltipDialog>
             </div>
