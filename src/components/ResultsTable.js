@@ -1,6 +1,6 @@
-import { Table, TableTitle, Highlight, TableWrapper, ResultTooltip } from '../App.styles';
+import { Table, TableTitle, Highlight, TableWrapper, ResultTooltip, ResultsWrapper } from '../App.styles';
 
-const ResultsTable = ({ results, inputs, HzToMw }) => {
+const ResultsTable = ({ results, inputs, HzToMw, layout }) => {
     const {
         spliceAttenuation,
         connectorAttenuationFDCF,
@@ -23,7 +23,7 @@ const ResultsTable = ({ results, inputs, HzToMw }) => {
     } = results;
 
     return (
-        <>
+        <ResultsWrapper layout={layout}>
             <TableWrapper>
                 <TableTitle>Podstawowe wyniki</TableTitle>
                 <Table>
@@ -179,7 +179,7 @@ const ResultsTable = ({ results, inputs, HzToMw }) => {
                     </tbody>
                 </Table>
             </TableWrapper>
-        </>
+        </ResultsWrapper>
     );
 };
 

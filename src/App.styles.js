@@ -5,13 +5,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 const colors = {
     text: '#e0e7f3',
     background: '#0a101c',
-    primary: '#96abd7',
-    secondary: '#673181',
-    accent: '#b947ab',
+    primary: '#96abd7', // Soft blue
+    secondary: '#673181', // Deep purple
+    accent: '#b947ab', // Magenta/Pinkish
     inputBg: '#151b2b',
     inputBorder: '#2c3e50',
-    error: '#ffadad', // Lighter red to contrast with dark bg
-    success: '#3eaf7c',
+    error: '#ffadad',
     highlightFDCF: '#3eaf7c',
     highlightDCF: '#b947ab'
 };
@@ -24,12 +23,13 @@ const blinkRed = keyframes`
 export const Container = styled.div`
     padding: 32px;
     margin: 40px auto;
-    max-width: 900px;
+    max-width: ${({ layout }) => (layout === 'grid' ? '1200px' : '900px')};
     background-color: ${colors.background};
     border-radius: 16px;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5), 0 4px 10px rgba(0, 0, 0, 0.3);
     color: ${colors.text};
     border: 1px solid #2a3b55;
+    transition: max-width 0.3s ease;
 
     h2 {
         color: ${colors.primary};
@@ -52,6 +52,63 @@ export const Header = styled.h1`
     background: linear-gradient(to right, ${colors.primary}, ${colors.accent});
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+`;
+
+export const ControlsContainer = styled.div`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+    gap: 16px;
+`;
+
+export const LayoutButtonGroup = styled.div`
+    display: flex;
+    gap: 8px;
+`;
+
+export const LayoutButton = styled.button`
+    padding: 10px 16px;
+    background-color: ${({ active }) => (active ? colors.accent : colors.inputBg)};
+    color: ${({ active }) => (active ? '#fff' : colors.text)};
+    border: 1px solid ${colors.inputBorder};
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: 'Glegoo', serif;
+
+    &:hover {
+        background-color: ${({ active }) => (active ? colors.accent : '#252e42')};
+    }
+`;
+
+export const FormWrapper = styled.form`
+    ${({ layout }) => layout === 'grid' && css`
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+        gap: 20px;
+        align-items: start;
+        
+        > div, > label {
+            margin-top: 0;
+            background: #151b2b;
+            padding: 16px;
+            border-radius: 8px;
+            border: 1px solid #2c3e50;
+            margin-bottom: 0; /* Override default margin */
+        }
+    `}
+`;
+
+export const ResultsWrapper = styled.div`
+    ${({ layout }) => layout === 'grid' && css`
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        gap: 24px;
+    `}
 `;
 
 export const Input = styled.input`
@@ -134,6 +191,7 @@ export const Table = styled.table`
     border-radius: 12px;
     /* overflow: hidden; Removed to allow tooltips */
     background-color: #111827;
+    height: 100%; /* Fill wrapper in grid mode */
 
     th, td {
         padding: 14px 18px;

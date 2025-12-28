@@ -4,11 +4,12 @@ import {
     Label,
     ReadOnly,
     LowerIndex,
-    Highlight
+    Highlight,
+    FormWrapper
 } from '../App.styles';
 import InputWithTooltip from "./InputWithTooltip";
 
-// Images
+// Images (unchanged, reusing existing imports)
 import routeImage from "../images/totalRoute.png"
 import kartaSwiatlowodu from "../images/kartaSwiatlowodu.png"
 import lx from "../images/lx.png"
@@ -24,9 +25,9 @@ import czuloscFotoidy from "../images/czuloscFotoidy.png"
 import tlumienieDCF from "../images/tlumienieDCF.png"
 import tlumienieFDCF from "../images/tlumienieFDCF.png"
 
-const CalculationForm = ({ inputs, handleChange, segmentAttenuation, splicesCount, dispersion, LDCF, wavelength, speed1, speed2, speed3 }) => {
+const CalculationForm = ({ inputs, handleChange, segmentAttenuation, splicesCount, dispersion, LDCF, wavelength, speed1, speed2, speed3, layout }) => {
     return (
-        <form>
+        <FormWrapper layout={layout}>
             <InputWithTooltip
                 label="Długość trasy [L] (km):"
                 name="routeLength"
@@ -374,7 +375,7 @@ const CalculationForm = ({ inputs, handleChange, segmentAttenuation, splicesCoun
                 }}
                 image={tlumienieFDCF}
             />
-        </form>
+        </FormWrapper>
     );
 };
 

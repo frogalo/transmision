@@ -1,12 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import useCalculations from './hooks/useCalculations';
 import CalculationForm from './components/CalculationForm';
 import ResultsTable from './components/ResultsTable';
 import Footer from "./Footer";
-import { Container, Header, Button } from './App.styles';
+import { Container, Header, ControlsContainer, LayoutButtonGroup, LayoutButton, Button } from './App.styles';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faList, faThLarge } from '@fortawesome/free-solid-svg-icons';
 
 const App = () => {
     const { inputs, handleChange, handleClearAll, results } = useCalculations();
+    const [layout, setLayout] = useState('standard'); // 'standard' or 'grid'
 
     const {
         segmentAttenuation,
@@ -26,11 +29,32 @@ const App = () => {
 
     return (
         <>
-            <Container>
+            <Container layout={layout}>
                 <Header>Ilustracja Obliczeń Światłowodowych</Header>
-                <Button type="button" onClick={handleClearAll}>
-                    Wyczyść dane
-                </Button>
+                
+                <ControlsContainer>
+                    <LayoutButtonGroup>
+                        <LayoutButton 
+                            active={layout === 'standard'} 
+                            onClick={() => setLayout('standard')}
+                            title="Lista"
+                        >
+                            <FontAwesomeIcon icon={faList} /> Standard
+                        </LayoutButton>
+                        <LayoutButton 
+                            active={layout === 'grid'} 
+                            onClick={() => setLayout('grid')}
+                            title="Siatka"
+                        >
+                            <FontAwesomeIcon icon={faThLarge} /> Kafelki
+                        </LayoutButton>
+                    </LayoutButtonGroup>
+
+                    <Button type="button" onClick={handleClearAll}>
+                        Wyczyść dane
+                    </Button>
+                </ControlsContainer>
+
                 <h2>Zmienne Wejściowe</h2>
                 
                 <CalculationForm 
@@ -44,10 +68,11 @@ const App = () => {
                     speed1={speed1}
                     speed2={speed2}
                     speed3={speed3}
+                    layout={layout}
                 />
 
                 <h2>Wyniki Obliczeń</h2>
-                <ResultsTable results={results} inputs={inputs} HzToMw={HzToMw} />
+                <ResultsTable results={results} inputs={inputs} HzToMw={HzToMw} layout={layout} />
             </Container>
             <Footer/>
         </>
