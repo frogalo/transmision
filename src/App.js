@@ -30,7 +30,7 @@ const App = () => {
     return (
         <>
             <Container layout={layout}>
-                <Header>Fizyczne Podstawy Transmisji Światłowodowej</Header>
+                <Header>Fizyczne Podstawy Transmisji</Header>
                 
                 <ControlsContainer>
                     <LayoutButtonGroup>
