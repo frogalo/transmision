@@ -1,18 +1,19 @@
 import styled, { keyframes, css } from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-// Colors
 const colors = {
-    text: '#e0e7f3',
-    background: '#0a101c',
-    primary: '#96abd7', // Soft blue
-    secondary: '#673181', // Deep purple
-    accent: '#b947ab', // Magenta/Pinkish
-    inputBg: '#151b2b',
-    inputBorder: '#2c3e50',
-    error: '#ffadad',
-    highlightFDCF: '#3eaf7c',
-    highlightDCF: '#b947ab'
+    text: '#eaedf3',
+    background: '#0c1118',
+    primary: '#99adcf',
+    secondary: '#30476e',
+    accent: '#6284c0',
+    muted: '#7a8ba3', // Muted grey-blue
+    inputBg: '#131b26', // Slightly lighter/blue-tinted background
+    inputBorder: '#30476e', // secondary
+    error: '#cf6679', // Soft red (complementary to blue theme)
+    // Distinct colors
+    highlightFDCF: '#6284c0', // Accent (Medium Blue)
+    highlightDCF: '#4caf50'   // Distinct Green to contrast with Blues
 };
 
 const blinkRed = keyframes`
@@ -28,7 +29,7 @@ export const Container = styled.div`
     border-radius: 16px;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5), 0 4px 10px rgba(0, 0, 0, 0.3);
     color: ${colors.text};
-    border: 1px solid #2a3b55;
+    /* border: 1px solid #2a3b55; Removed per user request */
     transition: max-width 0.3s ease;
 
     h2 {
@@ -39,6 +40,29 @@ export const Container = styled.div`
         font-weight: 700;
         border-bottom: 2px solid ${colors.secondary};
         padding-bottom: 8px;
+    }
+`;
+
+export const ClearButton = styled.button`
+    background: none;
+    border: none;
+    color: ${colors.primary};
+    cursor: pointer;
+    font-size: 1.1rem;
+    padding: 0;
+    margin-right: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.2s;
+
+    &:hover {
+        color: ${colors.error};
+    }
+    
+    &:disabled {
+        color: #555;
+        cursor: default;
     }
 `;
 
@@ -81,7 +105,7 @@ export const LayoutButton = styled.button`
     font-family: 'Glegoo', serif;
 
     &:hover {
-        background-color: ${({ active }) => (active ? colors.accent : '#252e42')};
+        background-color: ${({ active }) => (active ? colors.accent : colors.background)};
     }
 `;
 
@@ -94,10 +118,10 @@ export const FormWrapper = styled.form`
         
         > div, > label {
             margin-top: 0;
-            background: #151b2b;
+            background: ${colors.inputBg};
             padding: 16px;
             border-radius: 8px;
-            border: 1px solid #2c3e50;
+            border: 1px solid ${colors.inputBorder};
             margin-bottom: 0; /* Override default margin */
         }
     `}
@@ -132,8 +156,8 @@ export const Input = styled.input`
     &:focus {
         border-color: ${({ hasError }) => (hasError ? colors.error : colors.primary)};
         outline: none;
-        box-shadow: 0 0 0 3px ${({ hasError }) => (hasError ? "rgba(255, 173, 173, 0.2)" : "rgba(150, 171, 215, 0.2)")};
-        background-color: #1a2236;
+        box-shadow: 0 0 0 3px ${({ hasError }) => (hasError ? "rgba(255, 173, 173, 0.2)" : `rgba(65, 139, 123, 0.2)`)}; /* Using primary color with opacity */
+        background-color: ${colors.background};
     }
 
     &:hover {
@@ -149,7 +173,7 @@ export const WarningIcon = styled(FontAwesomeIcon)`
 export const ReadOnly = styled.div`
     padding: 12px 14px;
     margin: 8px 0;
-    background-color: #1a2236;
+    background-color: ${colors.inputBg};
     border: 1px solid ${colors.inputBorder};
     border-radius: 8px;
     font-size: 1rem;
@@ -190,7 +214,7 @@ export const Table = styled.table`
     border: 1px solid ${colors.inputBorder};
     border-radius: 12px;
     /* overflow: hidden; Removed to allow tooltips */
-    background-color: #111827;
+    background-color: ${colors.background};
     height: 100%; /* Fill wrapper in grid mode */
 
     th, td {
@@ -211,7 +235,7 @@ export const Table = styled.table`
     }
 
     th {
-        background-color: #1a2236;
+        background-color: ${colors.inputBg};
         font-weight: 700;
         color: ${colors.primary};
         text-transform: uppercase;
@@ -230,11 +254,11 @@ export const Table = styled.table`
     }
 
     tr:nth-child(even) {
-        background-color: #151b2b;
+        background-color: #1a2533; /* lighter blue-grey for stripe */
     }
 
     tr:hover {
-        background-color: #1f283d;
+        background-color: #24354a; /* visible secondary hover */
     }
 `;
 
@@ -338,7 +362,7 @@ export const TooltipDialog = styled.div`
     left: 10px;
     width: 340px;
     padding: 24px;
-    background: #1a2236;
+    background: ${colors.background};
     border: 1px solid ${colors.inputBorder};
     box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.6), 0 8px 10px -6px rgba(0, 0, 0, 0.4);
     z-index: 50;
@@ -349,7 +373,7 @@ export const TooltipDialog = styled.div`
     ol {
         padding-left: 20px;
         margin: 12px 0;
-        color: #cfd8e8;
+        color: ${colors.muted};
     }
     
     li {
@@ -376,7 +400,7 @@ export const TooltipDialog = styled.div`
         left: 20px;
         width: 12px;
         height: 12px;
-        background: #1a2236;
+        background: ${colors.background};
         transform: rotate(45deg);
         border-left: 1px solid ${colors.inputBorder};
         border-top: 1px solid ${colors.inputBorder};

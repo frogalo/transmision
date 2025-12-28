@@ -1,5 +1,13 @@
 @import url("https://fonts.googleapis.com/css?family=Glegoo:700|Glegoo:400");
 
+:root {
+  --text: #eaedf3;
+  --background: #0c1118;
+  --primary: #99adcf;
+  --secondary: #30476e;
+  --accent: #6284c0;
+}
+
 body {
   margin: 0;
   font-family: "Glegoo", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
@@ -7,8 +15,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #0a101c;
-  color: #e0e7f3;
+  background-color: var(--background);
+  color: var(--text);
   font-weight: 400;
 }
 
